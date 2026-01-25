@@ -90,25 +90,25 @@ const SocialLink: React.FC<SocialLinkProps> = ({ href, icon, label, color }) => 
 export default function Hero() {
   const socialLinks = [
     {
-      href: 'https://github.com/yourusername',
+      href: 'https://github.com/AbrahamWillemH',
       icon: <Github size={18} className="sm:w-5 sm:h-5" />,
       label: 'GitHub',
       color: '#333'
     },
     {
-      href: 'https://linkedin.com/in/yourusername',
+      href: 'https://linkedin.com/',
       icon: <Linkedin size={18} className="sm:w-5 sm:h-5" />,
       label: 'LinkedIn',
       color: '#0077B5'
     },
     {
-      href: 'https://wa.me/yourphonenumber',
+      href: 'https://wa.me/6285800738654',
       icon: <MessageCircle size={18} className="sm:w-5 sm:h-5" />,
       label: 'WhatsApp',
       color: '#25D366'
     },
     {
-      href: 'https://instagram.com/yourusername',
+      href: 'https://instagram.com/abraham_willemh',
       icon: <Instagram size={18} className="sm:w-5 sm:h-5" />,
       label: 'Instagram',
       color: '#E4405F'
