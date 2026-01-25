@@ -105,7 +105,7 @@ export default function Projects() {
           {/* Description Section - Left Side */}
           <div className="order-2 lg:order-1">
             <div className="space-y-6 flex flex-col items-center lg:items-start text-center lg:text-left">
-              <h2 className="text-7xl md:text-8xl font-bold text-white">
+              <h2 className="text-6xl md:text-8xl font-bold text-white">
                 ✷PROJECTS✷
               </h2>
               <h3 className="text-4xl font-bold text-white">
