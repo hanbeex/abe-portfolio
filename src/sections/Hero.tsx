@@ -96,7 +96,7 @@ export default function Hero() {
       color: '#333'
     },
     {
-      href: 'https://linkedin.com/',
+      href: 'https://www.linkedin.com/in/abraham-hersubagyo-a49377303/',
       icon: <Linkedin size={18} className="sm:w-5 sm:h-5" />,
       label: 'LinkedIn',
       color: '#0077B5'
