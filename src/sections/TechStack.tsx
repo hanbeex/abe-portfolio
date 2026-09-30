@@ -1,109 +1,198 @@
-import SkillTree, { Skill } from '@/components/ui/SkillTree';
-import Marquee from "react-fast-marquee";
+import { useEffect, useRef } from 'react';
+import SectionHeading, { Line } from '@/components/brutal/SectionHeading';
 import LogoLoop from '@/components/ui/LogoLoop';
-import GinIcon from "../assets/gin-cleaned.svg?react";
-import GinNegIcon from "../assets/gin-cleaned-negative.svg?react";
-import NestIcon from "../assets/NestJS.svg?react";
-import NestNegIcon from "../assets/NestJS-negative.svg?react";
-import FastAPIIcon from "../assets/fastapi.svg?react";
-import FlaskIcon from "../assets/flask.svg?react";
-import FlaskNegIcon from "../assets/flask-negative.svg?react";
-import FastAPINegIcon from "../assets/fastapi-negative.svg?react";
-import NextIcon from "../assets/nextjs.svg?react";
-import NextNegIcon from "../assets/nextjs-negative.svg?react";
-import GoIcon from "../assets/go.svg?react";
-import GoNegIcon from "../assets/go-negative.svg?react";
-import TSIcon from "../assets/ts.svg?react";
-import TSNegIcon from "../assets/ts-negative.svg?react";
-import JSIcon from "../assets/js.svg?react";
-import JSNegIcon from "../assets/js-negative.svg?react";
-import PythonIcon from "../assets/python.svg?react";
-import PythonNegIcon from "../assets/python-negative.svg?react";
-import DockerIcon from "../assets/docker.svg?react";
-import DockerNegIcon from "../assets/docker-negative.svg?react";
-import KubernetesIcon from "../assets/kubernetes.svg?react";
-import KubernetesNegIcon from "../assets/kubernetes-negative.svg?react";
-import JenkinsIcon from "../assets/jenkins.svg?react";
-import JenkinsNegIcon from "../assets/jenkins-negative.svg?react";
-import GrafanaIcon from "../assets/grafana.svg?react";
-import GrafanaNegIcon from "../assets/grafana-negative.svg?react";
-import ReactIcon from "../assets/react.svg?react";
-import ReactNegIcon from "../assets/react-negative.svg?react";
+import { gsap, prefersReducedMotion } from '@/lib/motion';
+import { cn } from '@/lib/utils';
+
+import GinIcon from '../assets/gin-cleaned-negative.svg?react';
+import NestIcon from '../assets/NestJS-negative.svg?react';
+import FastAPIIcon from '../assets/fastapi-negative.svg?react';
+import FlaskIcon from '../assets/flask-negative.svg?react';
+import NextIcon from '../assets/nextjs-negative.svg?react';
+import GoIcon from '../assets/go-negative.svg?react';
+import TSIcon from '../assets/ts-negative.svg?react';
+import JSIcon from '../assets/js-negative.svg?react';
+import PythonIcon from '../assets/python-negative.svg?react';
+import DockerIcon from '../assets/docker-negative.svg?react';
+import KubernetesIcon from '../assets/kubernetes-negative.svg?react';
+import JenkinsIcon from '../assets/jenkins-negative.svg?react';
+import GrafanaIcon from '../assets/grafana-negative.svg?react';
+import ReactIcon from '../assets/react-negative.svg?react';
+
+interface TechItem {
+  name: string;
+  icon: React.ComponentType<React.SVGProps<SVGSVGElement>>;
+}
+
+interface Category {
+  title: string;
+  blurb: string;
+  items: TechItem[];
+  bg: 'bg-blush' | 'bg-paper' | 'bg-pop';
+  tilt: string;
+  shift: string;
+}
+
+const categories: Category[] = [
+  {
+    title: 'Languages',
+    blurb: 'The grammars I think in.',
+    bg: 'bg-blush',
+    tilt: '-rotate-1',
+    shift: '',
+    items: [
+      { name: 'Go', icon: GoIcon },
+      { name: 'TypeScript', icon: TSIcon },
+      { name: 'JavaScript', icon: JSIcon },
+      { name: 'Python', icon: PythonIcon },
+    ],
+  },
+  {
+    title: 'Backend',
+    blurb: 'APIs, services & servers.',
+    bg: 'bg-paper',
+    tilt: 'rotate-1',
+    shift: 'lg:mt-12',
+    items: [
+      { name: 'Gin', icon: GinIcon },
+      { name: 'NestJS', icon: NestIcon },
+      { name: 'FastAPI', icon: FastAPIIcon },
+      { name: 'Flask', icon: FlaskIcon },
+      { name: 'Next.js', icon: NextIcon },
+      { name: 'React', icon: ReactIcon },
+    ],
+  },
+  {
+    title: 'DevOps & Infra',
+    blurb: 'Ship it, watch it, scale it.',
+    bg: 'bg-blush',
+    tilt: '-rotate-1',
+    shift: '',
+    items: [
+      { name: 'Docker', icon: DockerIcon },
+      { name: 'Kubernetes', icon: KubernetesIcon },
+      { name: 'Jenkins', icon: JenkinsIcon },
+      { name: 'Grafana', icon: GrafanaIcon },
+    ],
+  },
+];
+
+const loopLogos = [
+  { node: <GoIcon />, title: 'Go', href: 'https://go.dev' },
+  { node: <TSIcon />, title: 'TypeScript', href: 'https://www.typescriptlang.org/' },
+  { node: <JSIcon />, title: 'JavaScript', href: 'https://developer.mozilla.org/en-US/docs/Web/JavaScript' },
+  { node: <PythonIcon />, title: 'Python', href: 'https://www.python.org/' },
+  { node: <GinIcon />, title: 'Gin', href: 'https://gin-gonic.com/' },
+  { node: <NestIcon />, title: 'NestJS', href: 'https://nestjs.com/' },
+  { node: <FastAPIIcon />, title: 'FastAPI', href: 'https://fastapi.tiangolo.com/' },
+  { node: <FlaskIcon />, title: 'Flask', href: 'https://flask.palletsprojects.com/' },
+  { node: <NextIcon />, title: 'Next.js', href: 'https://nextjs.org' },
+  { node: <ReactIcon />, title: 'React', href: 'https://react.dev' },
+  { node: <DockerIcon />, title: 'Docker', href: 'https://www.docker.com/' },
+  { node: <KubernetesIcon />, title: 'Kubernetes', href: 'https://kubernetes.io/' },
+  { node: <JenkinsIcon />, title: 'Jenkins', href: 'https://www.jenkins.io/' },
+  { node: <GrafanaIcon />, title: 'Grafana', href: 'https://grafana.com/' },
+];
 
 export default function TechStack() {
-  const skills: Skill[] = [
-    { id: 'skill-0', name: 'JavaScript', icon: JSIcon, iconNegative: JSNegIcon, color: 'from-white to-gray-100', href: 'https://developer.mozilla.org/en-US/docs/Web/JavaScript', dependencies: [] },
-    { id: 'skill-1', name: 'TypeScript', icon: TSIcon, iconNegative: TSNegIcon, color: 'from-white to-gray-100', href: 'https://www.typescriptlang.org/', dependencies: ['skill-0'] },
-    { id: 'skill-2', name: 'Next.js', icon: NextIcon, iconNegative: NextNegIcon, color: 'from-white to-gray-100', href: 'https://nextjs.org', dependencies: ['skill-1'] },
-    { id: 'skill-3', name: 'Go', icon: GoIcon, iconNegative: GoNegIcon, color: 'from-white to-gray-100', href: 'https://golang.org', dependencies: [] },
-    { id: 'skill-4', name: 'Python', icon: PythonIcon, iconNegative: PythonNegIcon, color: 'from-white to-gray-100', href: 'https://www.python.org/', dependencies: [] },
-    { id: 'skill-5', name: 'FastAPI', icon: FastAPIIcon, iconNegative: FastAPINegIcon, color: 'from-white to-gray-100', href: 'https://fastapi.tiangolo.com/', dependencies: ['skill-4'] },
-    { id: 'skill-6', name: 'Gin', icon: GinIcon, iconNegative: GinNegIcon, color: 'from-white to-gray-100', href: 'https://gin-gonic.com/', dependencies: ['skill-3'] },
-    { id: 'skill-7', name: 'NestJS', icon: NestIcon, iconNegative: NestNegIcon, color: 'from-white to-gray-100', href: 'https://nestjs.com/', dependencies: ['skill-1'] },
-    { id: 'skill-8', name: 'Docker', icon: DockerIcon, iconNegative: DockerNegIcon, color: 'from-white to-gray-100', href: 'https://www.docker.com/', dependencies: ['skill-5', 'skill-6', 'skill-7', 'skill-2', 'skill-12', 'skill-13'] },
-    { id: 'skill-9', name: 'Kubernetes', icon: KubernetesIcon, iconNegative: KubernetesNegIcon, color: 'from-white to-gray-100', href: 'https://kubernetes.io/', dependencies: ['skill-8'] },
-    { id: 'skill-10', name: 'Jenkins', icon: JenkinsIcon, iconNegative: JenkinsNegIcon, color: 'from-white to-gray-100', href: 'https://www.jenkins.io/', dependencies: ['skill-8'] },
-    { id: 'skill-11', name: 'Grafana', icon: GrafanaIcon, iconNegative: GrafanaNegIcon, color: 'from-white to-gray-100', href: 'https://grafana.com/', dependencies: ['skill-9', 'skill-10'] },
-    { id: 'skill-12', name: 'React', icon: ReactIcon, iconNegative: ReactNegIcon, color: 'from-white to-gray-100', href: 'https://react.com/', dependencies: ['skill-1'] },
-    { id: 'skill-13', name: 'Flask', icon: FlaskIcon, iconNegative: FlaskNegIcon, color: 'from-white to-gray-100', href: 'https://react.com/', dependencies: ['skill-4'] },
-  ];
+  const root = useRef<HTMLElement>(null);
 
-  const positions = [
-    { x: 10, y: 5 },    // skill-0
-    { x: 10, y: 20 },   // skill-1
-    { x: 30, y: 20 },   // skill-2
-    { x: 50, y: 5 },    // skill-3
-    { x: 90, y: 5 },   // skill-4
-    { x: 90, y: 40 },   // skill-5
-    { x: 50, y: 20 },   // skill-6
-    { x: 25, y: 32.5 },   // skill-7
-    { x: 50, y: 40 },   // skill-8
-    { x: 35, y: 60 },   // skill-9
-    { x: 65, y: 60 },   // skill-10
-    { x: 50, y: 80 },   // skill-11
-    { x: 10, y: 40 },   // skill-12
-    { x: 70, y: 20 },   // skill-12
-  ];
-
-  const techLogos = [
-    { node: <GoIcon />, title: "Next.js", href: "https://nextjs.org" },
-    { node: <TSIcon />, title: "Next.js", href: "https://nextjs.org" },
-    { node: <JSIcon />, title: "Next.js", href: "https://nextjs.org" },
-    { node: <PythonIcon />, title: "Next.js", href: "https://nextjs.org" },
-    { node: <FastAPIIcon />, title: "FastAPI", href: "https://fastapi.tiangolo.com/" },
-    { node: <GinIcon />, title: "Next.js", href: "https://nextjs.org" },
-    { node: <NestIcon />, title: "Next.js", href: "https://nextjs.org" },
-    { node: <NextIcon />, title: "Next.js", href: "https://nextjs.org" },
-    { node: <DockerIcon />, title: "Next.js", href: "https://nextjs.org" },
-    { node: <KubernetesIcon />, title: "Next.js", href: "https://nextjs.org" },
-    { node: <JenkinsIcon />, title: "Next.js", href: "https://nextjs.org" },
-    { node: <GrafanaIcon />, title: "Next.js", href: "https://nextjs.org" },
-  ];
+  useEffect(() => {
+    if (prefersReducedMotion()) return;
+    const ctx = gsap.context(() => {
+      gsap.fromTo(
+        '[data-stack-card]',
+        { y: 90, opacity: 0 },
+        {
+          y: 0,
+          opacity: 1,
+          duration: 0.9,
+          stagger: 0.15,
+          ease: 'power4.out',
+          scrollTrigger: { trigger: '[data-stack-grid]', start: 'top 80%' },
+        }
+      );
+      gsap.fromTo(
+        '[data-chip]',
+        { scale: 0 },
+        {
+          scale: 1,
+          stagger: { each: 0.04, from: 'start' },
+          duration: 0.4,
+          ease: 'back.out(2.5)',
+          scrollTrigger: { trigger: '[data-stack-grid]', start: 'top 70%' },
+        }
+      );
+    }, root);
+    return () => ctx.revert();
+  }, []);
 
   return (
-    <div className="flex flex-col gap-10 mx-auto w-full max-w-[1400px] px-8">
-      <Marquee
-        gradient={false}
-        speed={120}
-        className="text-white font-extrabold whitespace-nowrap select-none text-[17vw] md:text-[8vw] leading-none overflow-hidden quantico-bold mb-4"
-      >
-        TECH✷STACK✷TECH✷STACK✷TECH✷STACK✷TECH✷STACK✷
-      </Marquee>
-      <div style={{ height: '38px', position: 'relative', overflow: 'hidden' }} className="mb-12">
-        <LogoLoop
-          logos={techLogos}
-          speed={120}
-          direction="left"
-          logoHeight={32}
-          gap={40}
-          pauseOnHover
-          scaleOnHover
-          fadeOut
-          fadeOutColor="#ffffff00"
-          ariaLabel="Technology partners"
+    <section ref={root} id="stack" className="relative py-24 sm:py-32">
+      <div className="max-w-[1400px] mx-auto px-5 sm:px-8">
+        <SectionHeading
+          index="02"
+          kicker="Tech Stack"
+          title={
+            <>
+              <Line>The tools</Line>
+              <Line outline>I trust.</Line>
+            </>
+          }
         />
+
+        {/* Icon ticker — ReactBits LogoLoop */}
+        <div className="mt-14 -mx-5 sm:-mx-8 border-y-[3px] border-ink bg-paper py-4 overflow-hidden">
+          <LogoLoop
+            logos={loopLogos}
+            speed={70}
+            direction="left"
+            logoHeight={34}
+            gap={56}
+            pauseOnHover
+            scaleOnHover
+            fadeOut
+            fadeOutColor="#E3E2DF"
+            ariaLabel="Technologies I use"
+          />
+        </div>
+
+        <div data-stack-grid className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-10 mt-16">
+          {categories.map((cat) => (
+            <article
+              key={cat.title}
+              data-stack-card
+              className={cn(
+                'b-border shadow-brutal-lg rounded-2xl p-6 sm:p-7 flex flex-col gap-5 press',
+                cat.bg,
+                cat.tilt,
+                cat.shift
+              )}
+            >
+              <header className="flex items-start justify-between gap-3 border-b-[3px] border-ink pb-4">
+                <div>
+                  <h3 className="font-display font-extrabold uppercase text-2xl tracking-tight">{cat.title}</h3>
+                  <p className="font-mono text-xs uppercase tracking-wide opacity-70 mt-1">{cat.blurb}</p>
+                </div>
+                <span className="font-display text-3xl leading-none text-pop" aria-hidden="true">✷</span>
+              </header>
+
+              <div className="flex flex-wrap gap-2.5">
+                {cat.items.map((item) => (
+                  <span
+                    key={item.name}
+                    data-chip
+                    className="inline-flex items-center gap-2 bg-paper b-border-sm shadow-brutal-sm rounded-lg px-3 py-2 press-sm"
+                  >
+                    <item.icon className="w-5 h-5" aria-hidden="true" />
+                    <span className="font-mono text-xs font-bold uppercase">{item.name}</span>
+                  </span>
+                ))}
+              </div>
+            </article>
+          ))}
+        </div>
       </div>
-      <SkillTree skills={skills} positions={positions} />
-    </div>
+    </section>
   );
-};
+}

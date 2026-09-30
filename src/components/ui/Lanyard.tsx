@@ -1,7 +1,7 @@
 'use client';
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useMemo, useRef, useState } from 'react';
 import { Canvas, extend, useFrame } from '@react-three/fiber';
-import { useGLTF, useTexture, Environment, Lightformer } from '@react-three/drei';
+import { useGLTF, Environment, Lightformer } from '@react-three/drei';
 import type { RigidBodyProps } from '@react-three/rapier';
 import {
   BallCollider,
@@ -14,9 +14,7 @@ import {
 import { MeshLineGeometry, MeshLineMaterial } from 'meshline';
 import * as THREE from 'three';
 
-// replace with your own imports, see the usage snippet for details
 import cardGLB from '../../assets/cardFix.glb?url';
-import lanyard from '../../assets/lanyard.jpeg';
 
 extend({ MeshLineGeometry, MeshLineMaterial });
 
@@ -47,28 +45,28 @@ export default function Lanyard({
         <Environment blur={0.75}>
           <Lightformer
             intensity={2}
-            color="white"
+            color="#E3AFBC"
             position={[0, -1, 5]}
             rotation={[0, 0, Math.PI / 3]}
             scale={[100, 0.1, 1]}
           />
           <Lightformer
             intensity={3}
-            color="white"
+            color="#E3E2DF"
             position={[-1, -1, 1]}
             rotation={[0, 0, Math.PI / 3]}
             scale={[100, 0.1, 1]}
           />
           <Lightformer
             intensity={3}
-            color="white"
+            color="#EE4C7C"
             position={[1, 1, 1]}
             rotation={[0, 0, Math.PI / 3]}
             scale={[100, 0.1, 1]}
           />
           <Lightformer
             intensity={10}
-            color="white"
+            color="#E3E2DF"
             position={[-10, 0, 14]}
             rotation={[0, Math.PI / 2, Math.PI / 3]}
             scale={[100, 10, 1]}
@@ -107,7 +105,26 @@ function Band({ maxSpeed = 50, minSpeed = 0 }: BandProps) {
   };
 
   const { nodes, materials } = useGLTF(cardGLB) as any;
-  const texture = useTexture(lanyard) as THREE.Texture;
+
+  // Palette-matched strap pattern, drawn straight onto a canvas so there is
+  // no async texture fetch to fail or delay the first frame.
+  const texture = useMemo(() => {
+    const c = document.createElement('canvas');
+    c.width = 32;
+    c.height = 128;
+    const ctx = c.getContext('2d')!;
+    ctx.fillStyle = '#9A1750'; // berry
+    ctx.fillRect(0, 0, 32, 128);
+    ctx.fillStyle = '#E3E2DF'; // paper
+    ctx.fillRect(0, 20, 32, 7);
+    ctx.fillRect(0, 84, 32, 7);
+    ctx.fillStyle = '#EE4C7C'; // pop
+    ctx.fillRect(0, 30, 32, 3);
+    ctx.fillRect(0, 94, 32, 3);
+    const t = new THREE.CanvasTexture(c);
+    t.wrapS = t.wrapT = THREE.RepeatWrapping;
+    return t;
+  }, []);
   const [curve] = useState(
     () =>
       new THREE.CatmullRomCurve3([new THREE.Vector3(), new THREE.Vector3(), new THREE.Vector3(), new THREE.Vector3()])

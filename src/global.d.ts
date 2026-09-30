@@ -47,10 +47,4 @@ declare module '@react-three/fiber' {
   }
 }
 
-declare global {
-  namespace NodeJS {
-    interface Timeout { }
-  }
-}
-
 export { };
