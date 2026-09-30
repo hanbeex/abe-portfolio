@@ -82,8 +82,8 @@ export default function Hero() {
           <span className="absolute -bottom-8 right-0 font-display font-extrabold uppercase leading-none text-outline opacity-20 text-[26vw] select-none">
             ABE
           </span>
-          <span className="absolute top-[10%] left-[2%] text-blush text-[9rem] leading-none animate-spin-slow select-none">✷</span>
-          <span className="absolute top-[62%] left-[46%] text-pop opacity-60 text-[4rem] leading-none animate-spin-slow select-none hidden lg:block">
+          <span className="absolute top-[10%] left-[2%] text-blush-soft text-[9rem] leading-none animate-spin-slow select-none">✷</span>
+          <span className="absolute top-[62%] left-[46%] text-pop-soft opacity-60 text-[4rem] leading-none animate-spin-slow select-none hidden lg:block">
             ✷
           </span>
         </div>
@@ -116,13 +116,13 @@ export default function Hero() {
 
             <h1 className="font-display font-extrabold uppercase leading-[0.9] tracking-tight text-[clamp(3.2rem,9.5vw,7.5rem)]">
               <span className="reveal-line">
-                <span data-hero-line className="block">Backend <span className="text-pop">&</span></span>
+                <span data-hero-line className="block">Backend <span className="text-pop-soft">&</span></span>
               </span>
               <span className="reveal-line">
                 <span data-hero-line className="block text-outline">DevOps</span>
               </span>
               <span className="reveal-line">
-                <span data-hero-line className="block">Engineer<span className="text-pop">.</span></span>
+                <span data-hero-line className="block">Engineer<span className="text-pop-soft">.</span></span>
               </span>
             </h1>
 
@@ -136,15 +136,15 @@ export default function Hero() {
               data-hero-sub
               className="inline-flex items-center gap-2 font-mono text-sm sm:text-base font-bold bg-paper b-border-sm shadow-brutal-sm rounded-lg px-4 py-2.5"
             >
-              <span className="text-pop" aria-hidden="true">&gt;</span>
+              <span className="text-pop-soft" aria-hidden="true">&gt;</span>
               <TextType
                 text={['scalable APIs', 'clean CI/CD pipelines', 'zero-downtime deploys', 'real-time WebSockets', 'happy on-call rotations']}
                 typingSpeed={55}
                 deletingSpeed={28}
                 pauseDuration={1700}
                 cursorCharacter="▮"
-                cursorClassName="text-pop"
-                className="text-berry"
+                cursorClassName="text-pop-soft"
+                className="text-berry-soft"
                 as="span"
               />
             </div>
@@ -185,12 +185,12 @@ export default function Hero() {
               <Lanyard fov={15} position={[0, 0, 20]} />
             </Suspense>
             <div data-hero-badge className="absolute -bottom-2 left-2 lg:left-6 z-20">
-              <div className="relative w-[164px] h-[164px] rounded-full bg-pop text-paper b-border shadow-brutal grid place-items-center">
+              <div className="relative w-[164px] h-[164px] rounded-full bg-pop text-ink b-border shadow-brutal grid place-items-center">
                 <CircularText
                   text="OPEN TO WORK ✷ BACKEND ✷ DEVOPS ✷ "
                   spinDuration={16}
                   onHover="speedUp"
-                  className="absolute inset-0 w-full h-full font-mono text-[10.5px] uppercase text-paper"
+                  className="absolute inset-0 w-full h-full font-mono text-[10.5px] uppercase text-ink"
                 />
                 <span className="font-display text-3xl font-extrabold leading-none pointer-events-none" aria-hidden="true">
                   ✷

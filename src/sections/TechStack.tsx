@@ -152,7 +152,7 @@ export default function TechStack() {
             pauseOnHover
             scaleOnHover
             fadeOut
-            fadeOutColor="#E3E2DF"
+            fadeOutColor="#59253A"
             ariaLabel="Technologies I use"
           />
         </div>
@@ -174,7 +174,7 @@ export default function TechStack() {
                   <h3 className="font-display font-extrabold uppercase text-2xl tracking-tight">{cat.title}</h3>
                   <p className="font-mono text-xs uppercase tracking-wide opacity-70 mt-1">{cat.blurb}</p>
                 </div>
-                <span className="font-display text-3xl leading-none text-pop" aria-hidden="true">✷</span>
+                <span className="font-display text-3xl leading-none text-pop-soft" aria-hidden="true">✷</span>
               </header>
 
               <div className="flex flex-wrap gap-2.5">

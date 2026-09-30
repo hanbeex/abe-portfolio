@@ -75,10 +75,10 @@ export default function Navbar() {
         <div className="max-w-[1400px] mx-auto flex items-center justify-between px-4 sm:px-8 h-[64px]">
           <button
             onClick={() => go('#top')}
-            className="font-mono font-bold text-lg tracking-tight cursor-pointer hover:text-pop transition-colors"
+            className="font-mono font-bold text-lg tracking-tight cursor-pointer hover:text-pop-soft transition-colors"
             aria-label="Back to top"
           >
-            ABE<span className="text-pop">✷</span>DEV
+            ABE<span className="text-pop-soft">✷</span>DEV
           </button>
 
           {/* Desktop links */}
@@ -95,7 +95,7 @@ export default function Navbar() {
             ))}
             <button
               onClick={() => go('#contact')}
-              className="ml-3 inline-flex items-center gap-1.5 font-mono text-sm font-bold uppercase px-4 py-2 rounded-lg bg-pop text-paper b-border-sm shadow-brutal-sm press-sm cursor-pointer"
+              className="ml-3 inline-flex items-center gap-1.5 font-mono text-sm font-bold uppercase px-4 py-2 rounded-lg bg-pop text-ink b-border-sm shadow-brutal-sm press-sm cursor-pointer"
             >
               Let's talk <ArrowUpRight size={16} strokeWidth={2.5} />
             </button>
@@ -115,13 +115,13 @@ export default function Navbar() {
       {/* Mobile full-screen menu */}
       <div
         ref={overlay}
-        className="fixed inset-0 z-[60] md:hidden bg-berry text-paper flex flex-col overflow-y-auto pointer-events-none"
+        className="fixed inset-0 z-[60] md:hidden bg-berry text-ink flex flex-col overflow-y-auto pointer-events-none"
         style={{ pointerEvents: open ? 'auto' : 'none' }}
         aria-hidden={!open}
       >
-        <div className="flex items-center justify-between px-4 h-[64px] border-b-[3px] border-paper/40">
+        <div className="flex items-center justify-between px-4 h-[64px] border-b-[3px] border-ink/40">
           <span className="font-mono font-bold text-lg">
-            ABE<span className="text-blush">✷</span>DEV
+            ABE<span className="text-blush-soft">✷</span>DEV
           </span>
           <button onClick={() => setOpen(false)} aria-label="Close menu" className="p-2 -mr-2 cursor-pointer">
             <X size={28} strokeWidth={2.5} />
@@ -134,7 +134,7 @@ export default function Navbar() {
               <button
                 data-menu-link
                 onClick={() => go(l.hash)}
-                className="flex items-baseline gap-3 font-display font-extrabold uppercase text-[13vw] leading-[1.05] cursor-pointer hover:text-blush transition-colors"
+                className="flex items-baseline gap-3 font-display font-extrabold uppercase text-[13vw] leading-[1.05] cursor-pointer hover:text-blush-soft transition-colors"
               >
                 <span className="font-mono text-sm font-normal opacity-70">0{i + 1}</span>
                 {l.label}

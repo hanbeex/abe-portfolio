@@ -47,8 +47,8 @@ export default function Contact() {
         <DotGrid
           dotSize={6}
           gap={28}
-          baseColor="#E3E2DF"
-          activeColor="#EE4C7C"
+          baseColor="#59253A"
+          activeColor="#8FC2D5"
           proximity={130}
           shockRadius={220}
           shockStrength={4}
@@ -97,7 +97,7 @@ export default function Contact() {
               target="_blank"
               rel="noopener noreferrer"
               aria-label={s.label}
-              className="grid place-items-center w-11 h-11 rounded-full bg-paper text-ink b-border-sm shadow-brutal-sm press-sm hover:bg-pop hover:text-paper"
+              className="grid place-items-center w-11 h-11 rounded-full bg-paper text-ink b-border-sm shadow-brutal-sm press-sm hover:bg-pop hover:text-ink"
             >
               <s.icon size={18} strokeWidth={2.2} />
             </a>
@@ -106,15 +106,15 @@ export default function Contact() {
       </div>
 
       {/* Footer bar */}
-      <footer className="relative z-10 bg-ink text-paper border-t-[3px] border-ink">
+      <footer className="relative z-10 bg-slate text-ink border-t-[3px] border-ink">
         <div className="max-w-[1400px] mx-auto px-5 sm:px-8 py-5 flex flex-col sm:flex-row items-center justify-between gap-3 font-mono text-xs uppercase tracking-widest">
           <span>© 2026 Abe Hersubagyo</span>
           <span className="flex items-center gap-2" aria-hidden="true">
-            Backend <span className="text-pop">✷</span> DevOps <span className="text-pop">✷</span> Indonesia
+            Backend <span className="text-pop-soft">✷</span> DevOps <span className="text-pop-soft">✷</span> Indonesia
           </span>
           <button
             onClick={() => scrollToSection('#top')}
-            className="inline-flex items-center gap-1.5 font-bold hover:text-pop transition-colors cursor-pointer"
+            className="inline-flex items-center gap-1.5 font-bold hover:text-pop-soft transition-colors cursor-pointer"
             aria-label="Back to top"
           >
             Back to top <ArrowUp size={14} strokeWidth={2.5} />

@@ -9,7 +9,7 @@ import { cn } from '@/lib/utils';
 const featured = projects.filter((p) => p.featured);
 const rest = projects.filter((p) => !p.featured);
 
-const stackColors = ['bg-blush text-ink', 'bg-paper text-ink', 'bg-pop text-paper', 'bg-paper text-ink'];
+const stackColors = ['bg-blush text-ink', 'bg-paper text-ink', 'bg-pop text-ink', 'bg-paper text-ink'];
 
 export default function Projects() {
   const root = useRef<HTMLElement>(null);
@@ -194,7 +194,7 @@ export default function Projects() {
                         target="_blank"
                         rel="noopener noreferrer"
                         aria-label={`Visit ${p.title}`}
-                        className="shrink-0 grid place-items-center w-9 h-9 rounded-lg bg-pop text-paper b-border-sm shadow-brutal-sm press-sm"
+                        className="shrink-0 grid place-items-center w-9 h-9 rounded-lg bg-pop text-ink b-border-sm shadow-brutal-sm press-sm"
                       >
                         <ArrowUpRight size={16} strokeWidth={2.5} />
                       </a>

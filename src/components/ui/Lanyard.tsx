@@ -45,28 +45,28 @@ export default function Lanyard({
         <Environment blur={0.75}>
           <Lightformer
             intensity={2}
-            color="#E3AFBC"
+            color="#895061"
             position={[0, -1, 5]}
             rotation={[0, 0, Math.PI / 3]}
             scale={[100, 0.1, 1]}
           />
           <Lightformer
             intensity={3}
-            color="#E3E2DF"
+            color="#FAF6F7"
             position={[-1, -1, 1]}
             rotation={[0, 0, Math.PI / 3]}
             scale={[100, 0.1, 1]}
           />
           <Lightformer
             intensity={3}
-            color="#EE4C7C"
+            color="#0677A1"
             position={[1, 1, 1]}
             rotation={[0, 0, Math.PI / 3]}
             scale={[100, 0.1, 1]}
           />
           <Lightformer
             intensity={10}
-            color="#E3E2DF"
+            color="#FAF6F7"
             position={[-10, 0, 14]}
             rotation={[0, Math.PI / 2, Math.PI / 3]}
             scale={[100, 10, 1]}
@@ -113,12 +113,12 @@ function Band({ maxSpeed = 50, minSpeed = 0 }: BandProps) {
     c.width = 32;
     c.height = 128;
     const ctx = c.getContext('2d')!;
-    ctx.fillStyle = '#9A1750'; // berry
+    ctx.fillStyle = '#78244C'; // berry
     ctx.fillRect(0, 0, 32, 128);
-    ctx.fillStyle = '#E3E2DF'; // paper
+    ctx.fillStyle = '#FAF6F7'; // ink (light stripe)
     ctx.fillRect(0, 20, 32, 7);
     ctx.fillRect(0, 84, 32, 7);
-    ctx.fillStyle = '#EE4C7C'; // pop
+    ctx.fillStyle = '#0677A1'; // pop
     ctx.fillRect(0, 30, 32, 3);
     ctx.fillRect(0, 94, 32, 3);
     const t = new THREE.CanvasTexture(c);

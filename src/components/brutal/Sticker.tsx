@@ -11,10 +11,10 @@ interface StickerProps {
 
 const colors = {
   blush: 'bg-blush text-ink',
-  pop: 'bg-pop text-paper',
+  pop: 'bg-pop text-ink',
   paper: 'bg-paper text-ink',
   ink: 'bg-ink text-paper',
-  berry: 'bg-berry text-paper',
+  berry: 'bg-berry text-ink',
 };
 
 export default function Sticker({ children, rotate = -3, color = 'blush', className, style }: StickerProps) {

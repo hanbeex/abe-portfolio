@@ -92,7 +92,7 @@ export default function About() {
                     <p className="font-bold">Abe Hersubagyo</p>
                     <p className="opacity-70">ID — BACKEND/DEVOPS</p>
                   </div>
-                  <span className="font-display text-2xl text-pop" aria-hidden="true">✷</span>
+                  <span className="font-display text-2xl text-pop-soft" aria-hidden="true">✷</span>
                 </div>
               </div>
 
@@ -106,15 +106,15 @@ export default function About() {
           <div data-about-copy className="flex flex-col gap-6">
             <p className="text-lg sm:text-xl leading-relaxed max-w-2xl">
               I'm a Backend and DevOps engineer passionate about building scalable and reliable systems. I specialize in
-              developing APIs with <strong className="text-berry">Gin</strong> and{' '}
-              <strong className="text-berry">NestJS</strong>, managing{' '}
-              <strong className="text-berry">PostgreSQL</strong> databases, and integrating real-time communication with
+              developing APIs with <strong className="text-berry-soft">Gin</strong> and{' '}
+              <strong className="text-berry-soft">NestJS</strong>, managing{' '}
+              <strong className="text-berry-soft">PostgreSQL</strong> databases, and integrating real-time communication with
               WebSockets.
             </p>
             <p className="text-lg sm:text-xl leading-relaxed max-w-2xl">
               On the DevOps side, I focus on mastering{' '}
-              <strong className="text-berry">CI/CD pipelines</strong> and deploying applications with{' '}
-              <strong className="text-berry">Kubernetes</strong> — ensuring smooth, automated delivery from development
+              <strong className="text-berry-soft">CI/CD pipelines</strong> and deploying applications with{' '}
+              <strong className="text-berry-soft">Kubernetes</strong> — ensuring smooth, automated delivery from development
               to production.
             </p>
 
@@ -125,7 +125,7 @@ export default function About() {
                   data-stat
                   className="bg-paper b-border shadow-brutal rounded-xl px-3 py-4 sm:px-5 sm:py-5 press"
                 >
-                  <p className="font-display font-extrabold text-2xl sm:text-4xl text-pop leading-none">{s.value}</p>
+                  <p className="font-display font-extrabold text-2xl sm:text-4xl text-pop-soft leading-none">{s.value}</p>
                   <p className="font-mono text-[10px] sm:text-xs uppercase tracking-wide mt-2 opacity-80">{s.label}</p>
                 </div>
               ))}

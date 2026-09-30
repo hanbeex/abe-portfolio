@@ -92,7 +92,7 @@ export default function Experience() {
                     className="absolute left-0 lg:left-1/2 top-1 lg:-translate-x-1/2 w-10 h-10 rounded-full bg-pop b-border-sm shadow-brutal-sm grid place-items-center z-10"
                     aria-hidden="true"
                   >
-                    <span className="text-paper font-display font-extrabold text-lg leading-none">✷</span>
+                    <span className="text-ink font-display font-extrabold text-lg leading-none">✷</span>
                   </div>
 
                   {/* card */}
@@ -109,7 +109,7 @@ export default function Experience() {
                         </div>
                         <div className="p-4 flex flex-col justify-center">
                           <h3 className="font-display font-extrabold uppercase text-xl leading-tight">{xp.org}</h3>
-                          <p className="font-mono text-xs uppercase tracking-wide text-berry font-bold">{xp.role}</p>
+                          <p className="font-mono text-xs uppercase tracking-wide text-berry-soft font-bold">{xp.role}</p>
                         </div>
                       </div>
                       <div className="p-5 sm:p-6">

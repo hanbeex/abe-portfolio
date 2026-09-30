@@ -2,11 +2,17 @@
 
 @theme {
   /* ── Palette ─────────────────────────────── */
-  --color-paper: #e3e2df;
-  --color-ink: #5d001e;
-  --color-blush: #e3afbc;
-  --color-berry: #9a1750;
-  --color-pop: #ee4c7c;
+  --color-paper: #59253a;
+  --color-ink: #faf6f7;
+  --color-blush: #895061;
+  --color-berry: #78244c;
+  --color-pop: #0677a1;
+  --color-slate: #2d4159;
+
+  /* Light tints of the accents — for text on dark surfaces (AA contrast) */
+  --color-pop-soft: #8fc2d5;
+  --color-berry-soft: #c9a7b7;
+  --color-blush-soft: #cab0b8;
 
   /* ── Type ────────────────────────────────── */
   --font-display: "Bricolage Grotesque", "Instrument Sans", sans-serif;
@@ -38,7 +44,7 @@
   }
 
   ::selection {
-    @apply bg-pop text-paper;
+    @apply bg-pop text-ink;
   }
 
   ::-webkit-scrollbar {

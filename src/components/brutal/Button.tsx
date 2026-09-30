@@ -16,7 +16,7 @@ interface ButtonProps {
 }
 
 const variants: Record<Variant, string> = {
-  pop: 'bg-pop text-paper',
+  pop: 'bg-pop text-ink',
   blush: 'bg-blush text-ink',
   ink: 'bg-ink text-paper',
   paper: 'bg-paper text-ink',

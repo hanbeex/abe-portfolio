@@ -11,9 +11,9 @@ interface MarqueeProps {
 }
 
 const colors = {
-  berry: 'bg-berry text-paper',
+  berry: 'bg-berry text-ink',
   ink: 'bg-ink text-paper',
-  pop: 'bg-pop text-paper',
+  pop: 'bg-pop text-ink',
   paper: 'bg-paper text-ink',
 };
 
@@ -39,7 +39,7 @@ export default function Marquee({
             className={cn(
               'font-display font-extrabold uppercase whitespace-nowrap leading-none',
               'text-[clamp(1.6rem,4vw,3.2rem)] tracking-tight pr-8',
-              outline && 'text-outline-paper'
+              outline && (color === 'ink' ? 'text-outline-paper' : 'text-outline')
             )}
           >
             {row}
