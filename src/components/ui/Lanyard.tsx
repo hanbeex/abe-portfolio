@@ -35,11 +35,12 @@ export default function Lanyard({
     <div className="w-full h-full flex justify-end items-center pointer-events-auto">
       <Canvas
         camera={{ position, fov }}
-        gl={{ alpha: transparent }}
+        gl={{ alpha: transparent, antialias: false, powerPreference: "low-power" }}
+        dpr={1}
         onCreated={({ gl }) => gl.setClearColor(new THREE.Color(0x000000), transparent ? 0 : 1)}
       >
         <ambientLight intensity={Math.PI} />
-        <Physics gravity={gravity} timeStep={1 / 60}>
+        <Physics gravity={gravity} timeStep={1 / 30}>
           <Band />
         </Physics>
         <Environment blur={0.75}>
@@ -190,7 +191,7 @@ function Band({ maxSpeed = 50, minSpeed = 0 }: BandProps) {
       curve.points[1].copy(j2.current.lerped);
       curve.points[2].copy(j1.current.lerped);
       curve.points[3].copy(fixed.current.translation());
-      band.current.geometry.setPoints(curve.getPoints(32));
+      band.current.geometry.setPoints(curve.getPoints(16));
       ang.copy(card.current.angvel());
       rot.copy(card.current.rotation());
       card.current.setAngvel({ x: ang.x, y: ang.y - rot.y * 0.25, z: ang.z });
