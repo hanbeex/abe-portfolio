@@ -7,7 +7,7 @@ export const CV_URL = '/cv.pdf'; // drop your CV into public/cv.pdf
 export const socials = [
   {
     label: 'GitHub',
-    href: 'https://github.com/AbrahamWillemH',
+    href: 'https://github.com/hanbeex',
     icon: Github,
   },
   {
