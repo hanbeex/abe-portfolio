@@ -2,7 +2,6 @@ import { useEffect } from 'react';
 import Navbar from './sections/Navbar';
 import Hero from './sections/Hero';
 import Projects from './sections/Projects';
-import About from './sections/About';
 import Experience from './sections/Experience';
 import TechStack from './sections/TechStack';
 import Contact from './sections/Contact';
@@ -26,7 +25,6 @@ export function App() {
     <main>
       <Hero />
       <Projects />
-      <About />
       <Experience />
       <TechStack />
       <Contact />

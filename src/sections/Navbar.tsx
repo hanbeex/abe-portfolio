@@ -4,7 +4,6 @@ import { scrollToSection } from '@/lib/lenis';
 
 const links = [
   { label: 'Projects', hash: '#projects' },
-  { label: 'About', hash: '#about' },
   { label: 'Experience', hash: '#experience' },
   { label: 'Contact', hash: '#contact' },
 ];

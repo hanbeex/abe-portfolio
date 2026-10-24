@@ -13,14 +13,14 @@ export const projects: Project[] = [
     title: 'Wedding Invitation & Souvenir ERP',
     description:
       'Laravel-based ERP that streamlines order management with real-time inventory tracking, automated purchase orders after payment, and a dynamic team calendar. Replaces spreadsheets with one centralized system.',
-    image: '/enzo-3.png',
+    image: '/enzo.png',
     link: 'https://erp.enzocreatives.com',
     tags: ['Laravel', 'MySQL', 'Inventory'],
     year: '2024',
     featured: true,
   },
   {
-    title: 'HRIS Backend — PT Tata Wisata',
+    title: 'HRIS Backend - PT Tata Wisata',
     description:
       'NestJS backend for a Human Resource Information System. JWT auth, RBAC, PostgreSQL + KyselyDB query optimization, attendance tracking, payroll automation, and REST API integration.',
     image: '/hris.jpg',
@@ -30,33 +30,24 @@ export const projects: Project[] = [
     featured: true,
   },
   {
-    title: 'Cargo Logistics Backend',
+    title: 'Cargo Logistics Platform',
     description:
-      'Export-import cargo management system backend. Go/Gin with PostgreSQL — shipment lifecycle, documentation, and ops workflows. Documented and tested with Postman.',
+      'Fullstack export-import cargo management system. Go/Gin + PostgreSQL backend for shipment lifecycle, documentation, and ops workflows, with a Next.js frontend for real-time shipment tracking and dashboard visualization. Documented and tested with Postman.',
     image: '/emran.webp',
     link: 'https://system.emrankargo.com',
-    tags: ['Go', 'Gin', 'PostgreSQL'],
-    year: '2024',
-    featured: true,
-  },
-  {
-    title: 'Cargo Logistics Frontend',
-    description:
-      'Companion frontend for the cargo platform. Next.js with SSR/SSG, real-time shipment tracking, and dashboard visualization for operations teams.',
-    image: '/emran.webp',
-    link: 'https://system.emrankargo.com',
-    tags: ['Next.js', 'Tailwind', 'SSR'],
+    tags: ['Go', 'Next.js', 'PostgreSQL'],
     year: '2024',
     featured: true,
   },
   {
     title: 'WM Center Booking Backend',
     description:
-      'Backend for a massage appointment platform — scheduling, therapist assignment, and booking flows with Go/Gin and PostgreSQL.',
+      'Backend for a massage appointment platform - scheduling, therapist assignment, and booking flows with Go/Gin and PostgreSQL.',
     image: '/wmcenter.png',
     link: 'https://wmcenter.id',
     tags: ['Go', 'Gin', 'PostgreSQL'],
     year: '2024',
+    featured: true,
   },
   {
     title: 'UNISRI LIK',
@@ -70,7 +61,7 @@ export const projects: Project[] = [
   {
     title: 'UNISRI LSP',
     description:
-      'Certification management platform for professional exams — registration, progress tracking, and certification results.',
+      'Certification management platform for professional exams - registration, progress tracking, and certification results.',
     image: '/lsp.png',
     link: 'https://lsp-unisri.com/',
     tags: ['Web', 'Certification'],
@@ -88,7 +79,7 @@ export const projects: Project[] = [
   {
     title: 'Portal Prestasi',
     description:
-      'Laravel platform for discovering events & scholarships — registration flows and admin management.',
+      'Laravel platform for discovering events & scholarships - registration flows and admin management.',
     image: '/portalprestasi.png',
     link: 'https://github.com/AbrahamWillemH/PortalPrestasi',
     tags: ['Laravel', 'MySQL'],
@@ -97,7 +88,7 @@ export const projects: Project[] = [
   {
     title: 'Tower Defense Game',
     description:
-      'Little game built with Greenfoot — waves, upgrades, and strategic tower placement.',
+      'Little game built with Greenfoot - waves, upgrades, and strategic tower placement.',
     image: '/greenfoot.png',
     link: 'https://www.greenfoot.org/scenarios/32214',
     tags: ['Java', 'Greenfoot'],
@@ -106,7 +97,7 @@ export const projects: Project[] = [
   {
     title: 'Turing Machine Simulator',
     description:
-      'Web-based multitape Turing Machine simulator solving (m+n)^a/b — Flask backend with an interactive JS front.',
+      'Web-based multitape Turing Machine simulator solving (m+n)^a/b - Flask backend with an interactive JS front.',
     image: '/tba.png',
     link: 'https://project-tba-uas.vercel.app/',
     tags: ['Flask', 'JavaScript'],
@@ -123,7 +114,7 @@ export const projects: Project[] = [
   {
     title: 'Bike Sharing Analysis',
     description:
-      'Exploratory analysis of a bike-sharing dataset with Python, Pandas, Matplotlib & Seaborn — uncovering usage trends.',
+      'Exploratory analysis of a bike-sharing dataset with Python, Pandas, Matplotlib & Seaborn - uncovering usage trends.',
     image: '/bikesharing.png',
     link: 'https://github.com/AbrahamWillemH/dicoding-project-bike-rental',
     tags: ['Python', 'Pandas', 'EDA'],
